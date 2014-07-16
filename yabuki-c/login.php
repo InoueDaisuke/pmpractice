@@ -14,7 +14,7 @@
      echo    $_SESSION["error"]  ;
      $_SESSION['example1']="";
      echo $_SESSION['example1']
-        
+   
 
 ?>
         <form action="dologin.php" method="post">
@@ -23,7 +23,7 @@
             <BUTTON type="submit"/><IMG src="bb.jpg"></BUTTON></form>
         <form action="shinkitouroku.php" method="post">
             <BUTTON type="submit"/><IMG src="cc.jpg"></BUTTON></form>
-        </form>
+       
         </CENTER>
     </body>
 </html>
