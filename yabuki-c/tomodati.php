@@ -47,7 +47,7 @@ try{
       ?>
       <?php foreach ($result as $friend) { ?> 
         <form action="start.php" method="POST">
-            <input type="submit" name="friendid" value="<?php echo($friend["friendid"]);?>">
+            <input type="submit" name="friendid" value="<?php echo($friend["name"]);?>">
         </form>
 <?php } ?>
      <br>

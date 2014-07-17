@@ -45,11 +45,12 @@ if (!isset($_SESSION["myid"])) {
                     }
                      foreach ($result as $friend) {
                       echo '<li>' . h($friend['name']) . '</li>';
-                  $sql2 = 'INSERT INTO friend (friendid,myid) VALUES (:friendid,:myid)';
+                       $sql2 = 'INSERT INTO friend (friendid,myid,name) VALUES (:friendid,:myid,:name)';
                    $prepare2 = $db->prepare($sql2);
                    $prepare2->bindValue(':friendid', $_GET['id'], PDO::PARAM_STR);
                    $prepare2->bindValue(':myid', $_SESSION['myid'], PDO::PARAM_STR);
-                   $prepare2->execute();
+                   $prepare2->bindValue(':name', $friend['name'], PDO::PARAM_STR);
+                       $prepare2->execute();
                   $id = $db->lastInsertId();
                      }
                      } catch (PDOException $e) {
@@ -60,7 +61,7 @@ if (!isset($_SESSION["myid"])) {
             ?>
             <form method="get" action="search.php">
                 <p>ID
-                    <input type="text" name="id" value="" pattern="[A-Za-z0-9]{8}" required autofocus></p>
+                    <input type="text" name="friendid" value="" pattern="[A-Za-z0-9]{8}" required autofocus></p>
                 <p>名前
                     <input type="text" name="name" value=""   required></p>
 
