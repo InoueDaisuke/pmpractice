@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once 'h.php';
 session_start();
 // ログイン状態のチェック
@@ -14,14 +14,17 @@ if (!isset($_SESSION["myid"])) {
     <title>友達リスト</title>
   </head>
      <CENTER> 
-
+       <style>
+         table{display:inline;}
+       </style>
   <body>
+    <table border="0" width="100%" vspace="0"align="center">
       <tr>
-      <p><img src="vv.jpg" >
-       <nobr> <form action="search.php" method="post">
-            <BUTTON type="submit"/><IMG src="oo.jpg"></nobr></BUTTON></form></p>
-</tr>     
- <?php 
+       <img src="vv.jpg" alt="title">
+      <form action="search.php" method="post"><BUTTON type="submit"/><IMG src="oo.jpg"></BUTTON></form></p>
+       </tr>
+       </table>
+      <?php 
 try{
         require_once 'database_conf.php';
         require_once 'h.php';
@@ -42,7 +45,6 @@ try{
                     echo 'エラーが発生しました';
                 }        
       ?>
-            
       <?php foreach ($result as $friend) { ?> 
         <form action="start.php" method="POST">
             <input type="submit" name="friendid" value="<?php echo($friend["friendid"]);?>">
@@ -52,7 +54,6 @@ try{
  
 <form action="main.php" >
     <BUTTON type="submit"/><IMG src="zz.jpg"></nobr></BUTTON></form>
-</CENTER>   
-      </body>
+   </CENTER> </body>
 
 </html>

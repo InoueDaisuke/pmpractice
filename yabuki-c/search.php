@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once 'h.php';
 session_start();
 // ログイン状態のチェック
@@ -39,6 +39,10 @@ if (!isset($_SESSION["myid"])) {
                     $prepare->bindValue(':word2', '%' . $_GET['name'] . '%', PDO::PARAM_STR);
                     $prepare->execute();
                     $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+                    if (count($result)==0) {
+                    
+                          header('Location:error.php');
+                    }
                      foreach ($result as $friend) {
                       echo '<li>' . h($friend['name']) . '</li>';
                   $sql2 = 'INSERT INTO friend (friendid,myid) VALUES (:friendid,:myid)';
@@ -50,14 +54,15 @@ if (!isset($_SESSION["myid"])) {
                      }
                      } catch (PDOException $e) {
                     echo 'エラーが発生しました';
-                }
-            }
+            }}
+                
+            
             ?>
             <form method="get" action="search.php">
                 <p>ID
                     <input type="text" name="id" value="" pattern="[A-Za-z0-9]{8}" required autofocus></p>
                 <p>名前
-                    <input type="text" name="name" value="" required></p>
+                    <input type="text" name="name" value=""   required></p>
 
         
           
