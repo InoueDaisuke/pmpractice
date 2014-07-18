@@ -18,11 +18,11 @@ if (!isset($_SESSION["myid"])) {
          table{display:inline;}
        </style>
   <body>
-    <table border="0" width="100%" vspace="0"align="center">
+    <table border="0" width="100%" vspace="0">
       <tr>
-       <img src="vv.jpg" alt="title">
-      <form action="search.php" method="post"><BUTTON type="submit"/><IMG src="oo.jpg"></BUTTON></form></p>
-       </tr>
+        <td align="center"><img src="vv.jpg" alt="title"></td>
+      <td align="center"><form action="search.php" method="post"><BUTTON type="submit"/><IMG src="oo.jpg"></BUTTON></form></p>
+       </td></tr>
        </table>
       <?php 
 try{
@@ -47,7 +47,7 @@ try{
       ?>
       <?php foreach ($result as $friend) { ?> 
         <form action="start.php" method="POST">
-            <input type="submit" name="friendid" value="<?php echo($friend["name"]);?>">
+            <input type="submit" name="friendid" value="<?php echo($friend["friendid"]);?>">
         </form>
 <?php } ?>
      <br>
